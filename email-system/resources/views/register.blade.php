@@ -80,7 +80,7 @@
               var formData = new FormData($('#signupForm')[0]);
               $.ajax({
                 
-                url: "http://127.0.0.1:8000/api/addUsers", // 
+                url: "http://3.24.179.107:8000/api/addUsers", // 
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -90,7 +90,7 @@
                 success: function(response) {
                 if(response.success == true){
                     console.log(response);
-                    window.location.replace("http://127.0.0.1:8000/api/home","self");
+                    window.location.replace("http://3.24.179.107:8000/api/home","self");
                 }
                 },
                 error: function(error) {

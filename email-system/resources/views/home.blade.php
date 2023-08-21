@@ -25,7 +25,7 @@
         <script >
             $().ready(function () {
             if(localStorage.getItem("user_token")!=null){
-                window.location.href="http://127.0.0.1:8000/api/inbox";
+                window.location.href="http://3.24.179.107:8000/api/inbox";
             }
             $("#signupForm").validate({
             rules: {
@@ -53,7 +53,7 @@
               var formData = new FormData($('#signupForm')[0]);
               $.ajax({
                 
-                url: "http://127.0.0.1:8000/api/Login", // Replace with your form submission URL
+                url: "http://3.24.179.107:8000/api/Login", // Replace with your form submission URL
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -64,7 +64,7 @@
                 success: function(response) {
                     if(response.success==true){
                     localStorage.setItem("user_token",response.access_token);
-                    window.location.href="http://127.0.0.1:8000/api/inbox";
+                    window.location.href="http://3.24.179.107:8000/api/inbox";
                     }
                     else{
                         console.log(error);
@@ -78,7 +78,7 @@
             });
         
             $('#addUserForm').on('click',function(e) {
-                window.location.href="http://127.0.0.1:8000/api/addUserForms";
+                window.location.href="http://3.24.179.107:8000/api/addUserForms";
             
             
             });
@@ -91,7 +91,7 @@
     <nav class="navbar navbar-expand-md navbar-dark " style="background-color: #ff9933">
         <div class="collapse navbar-collapse" id="navbarNav">
             <div>
-                    <a href="{{route('home')}}" class="navbar-brand">Email System</a>
+                    <a href="http://3.24.179.107:8000/api/home" class="navbar-brand">Email System</a>
             </div>
         </div>
     </nav> 
