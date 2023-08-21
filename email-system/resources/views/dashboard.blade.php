@@ -30,7 +30,7 @@
     <script>
       $().ready(function () {
         $.ajax({
-          url:"http://127.0.0.1:8000/api/dashboardData",
+          url:"http://3.24.179.107:8000/api/dashboardData",
           type: "GET",
           headers:{'Authorization': localStorage.getItem('user_token')},
           success:function(data){
@@ -43,7 +43,7 @@
                   $("#userName").html(name);
                 }
                 $.each(data.emails.data, function (key, value) {
-                  $("#tblMail").append("<tr class='clickable-row' data-href=http://127.0.0.1:8000/api/mail_view?id="+value.email_id+"><td> By:"+value.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
+                  $("#tblMail").append("<tr class='clickable-row' data-href=http://3.24.179.107:8000/api/mail_view?id="+value.email_id+"><td> By:"+value.email+"</td><td>" + value.body  +"</td><td>" +value.subject  +"</td><td>" +value.created_at  +"</td></tr>");
                   
                 });
                 $('.clickable-row').on('click', function() {
@@ -53,18 +53,18 @@
             }
             },error: function(error) {
                 console.log(error); 
-                window.location.href="http://127.0.0.1:8000/api/home";
+                window.location.href="http://3.24.179.107:8000/api/home";
               }
         });
 
         $('#logout').on('click',function(e) {
           $.ajax({
-            url:"http://127.0.0.1:8000/api/logout",
+            url:"http://3.24.179.107:8000/api/logout",
             headers: {'Authorization': localStorage.getItem('user_token')},
             success:function(response){
               if(response.success == true){
                 localStorage.removeItem('user_token');
-                window.location.href="http://127.0.0.1:8000/api/home";
+                window.location.href="http://3.24.179.107:8000/api/home";
               }
               else{
                 console.log(response);
@@ -77,14 +77,14 @@
         });
 
         $('#update').on('click',function(){
-          window.location.href="http://127.0.0.1:8000/api/updateUserFormView";
+          window.location.href="http://3.24.179.107:8000/api/updateUserFormView";
         });
 
           $('#submitBtn').on('click',function(e) {
             var formData = new FormData($('#emailForm')[0]);
             $.ajax({
               
-              url: "http://127.0.0.1:8000/api/send_mail", 
+              url: "http://3.24.179.107:8000/api/send_mail", 
               type: "POST",
               data: formData,
               contentType: false,
@@ -118,10 +118,10 @@
             });
           });
           $('#inbox').on('click',function(e) {
-            window.location.href="http://127.0.0.1:8000/api/inbox";
+            window.location.href="http://3.24.179.107:8000/api/inbox";
           });
           $('#sent_mail').on('click',function(e) {
-            window.location.href="http://127.0.0.1:8000/api/sent_mail_page";
+            window.location.href="http://3.24.179.107:8000/api/sent_mail_page";
           });
       });
     </script>
@@ -136,7 +136,7 @@
           style="background-color: #ff9933">
           <div class="collapse navbar-collapse" id="navbarNav">
           <div>
-              <a href="http://127.0.0.1:8000/api/inbox" class="navbar-brand">Email System</a>
+              <a href="http://3.24.179.107:8000/api/inbox" class="navbar-brand">Email System</a>
           </div>
             <div class="ml-auto ">
                 <a id="update" class="navbar-brand rounded-circle">
