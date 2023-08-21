@@ -91,7 +91,7 @@
     <nav class="navbar navbar-expand-md navbar-dark " style="background-color: #ff9933">
         <div class="collapse navbar-collapse" id="navbarNav">
             <div>
-                    <a href="{{route('home')}}" class="navbar-brand">Email System</a>
+                    <a href="http://3.24.179.107:8000/api/home" class="navbar-brand">Email System</a>
             </div>
         </div>
     </nav> 
