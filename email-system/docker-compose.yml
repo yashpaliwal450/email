@@ -1,0 +1,41 @@
+version: '4.3'
+
+services:
+  laravel-app:
+    build:
+      context: '.'
+      args:
+        uid: ${UID}
+    container_name: laravel-app
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8000:80
+    
+
+  mysql-db:
+    image: mysql:8.0.30
+    container_name: mysql-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 9084
+      MYSQL_DATABASE: email_system
+    volumes:
+      - .:/var/www/html
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8080:80'
+    restart: always
+    environment:
+        PMA_HOST: mysql-db
+    depends_on:
+        - mysql-db
+    
+
+    
